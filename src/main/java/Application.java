@@ -1,4 +1,4 @@
-import org.istic.coa.tp.concreteArtefacts.CaptorScheduler;
+import org.istic.coa.tp.concreteArtefacts.CaptorScheduleProcessor;
 import org.istic.coa.tp.concreteArtefacts.Display;
 import org.istic.coa.tp.concreteArtefacts.Canal;
 import org.istic.coa.tp.concreteArtefacts.CaptorImpl;
@@ -14,8 +14,8 @@ public class Application {
                 // The capteur
         CaptorImpl captor = new CaptorImpl();
         captor.setDiffuseStrategy(DiffusionType.SEQUENTIAL);
-        CaptorScheduler scheduler = new CaptorScheduler();
-        scheduler.activate(captor, 200);
+        CaptorScheduleProcessor process = new CaptorScheduleProcessor(1, 1500, 1);
+        process.randomIncrementByPeriod(captor, 200);
 
         // First canal
         Canal canal1 = new Canal(captor);
