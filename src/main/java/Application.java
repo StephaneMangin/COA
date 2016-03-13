@@ -1,9 +1,8 @@
-import org.istic.coa.tp.concreteArtefacts.Screen;
+import org.istic.coa.tp.concreteArtefacts.CaptorScheduler;
+import org.istic.coa.tp.concreteArtefacts.Display;
 import org.istic.coa.tp.concreteArtefacts.Canal;
 import org.istic.coa.tp.concreteArtefacts.CaptorImpl;
-import org.istic.coa.tp.diffusionStrategies.AtomicDiffusionStrategy;
-import org.istic.coa.tp.diffusionStrategies.EpocDiffusionStrategy;
-import org.istic.coa.tp.diffusionStrategies.SequentialDiffusionStrategy;
+import org.istic.coa.tp.diffusionStrategies.DiffusionType;
 
 /**
  * Created by stephane on 12/01/16.
@@ -12,38 +11,22 @@ public class Application {
 
     public static void main(String[] args) {
 
-        // The capteur
-        CaptorImpl capteur1 = new CaptorImpl(new AtomicDiffusionStrategy("atomic"));
-        capteur1.addDiffusionStrategy(new SequentialDiffusionStrategy("sequential"));
-        capteur1.addDiffusionStrategy(new EpocDiffusionStrategy("epoque"));
+                // The capteur
+        CaptorImpl captor = new CaptorImpl();
+        captor.setDiffuseStrategy(DiffusionType.ATOMIC);
+        CaptorScheduler scheduler = new CaptorScheduler();
+        scheduler.activate(captor, 2000);
 
         // First canal
-        Canal canal1 = new Canal(capteur1);
-        Screen screen1 = new Screen();
-        canal1.setDelay(250);
-        canal1.attach(screen1);
+        Canal canal1 = new Canal(captor);
+        Display display1 = new Display();
+        canal1.setDelay(150);
+        canal1.attach(display1);
 
         // Second canal
-        Canal canal2 = new Canal(capteur1);
-        Screen screen2 = new Screen();
-        canal1.setDelay(600);
-        canal2.attach(screen2);
-
-        // Value generation
-        for (int i= 0; i <= 8; i++) {
-            if (i >= 6) {
-                capteur1.selectDiffuseStrategy("epoque");
-            }
-            if (i >= 3 && i < 6) {
-                capteur1.selectDiffuseStrategy("sequential");
-            }
-            if (i < 3) {
-                capteur1.selectDiffuseStrategy("atomic");
-            }
-            System.out.println("Tick with " + capteur1.getDiffusionStrategy() + " => " + i);
-            capteur1.setValue(i);
-            capteur1.tick();
-        }
-
+        Canal canal2 = new Canal(captor);
+        Display display2 = new Display();
+        canal2.setDelay(600);
+        canal2.attach(display2);
     }
 }

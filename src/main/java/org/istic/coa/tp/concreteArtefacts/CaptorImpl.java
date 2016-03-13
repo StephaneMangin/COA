@@ -1,5 +1,9 @@
 package org.istic.coa.tp.concreteArtefacts;
 
+import org.istic.coa.tp.diffusionStrategies.AtomicDiffusionStrategy;
+import org.istic.coa.tp.diffusionStrategies.DiffusionType;
+import org.istic.coa.tp.diffusionStrategies.EpocDiffusionStrategy;
+import org.istic.coa.tp.diffusionStrategies.SequentialDiffusionStrategy;
 import org.istic.coa.tp.implementationHelpers.AbstractCaptor;
 import org.istic.coa.tp.interfaces.DiffusionStrategy;
 
@@ -13,29 +17,35 @@ import java.util.List;
  */
 public class CaptorImpl extends AbstractCaptor {
 
-    private List<DiffusionStrategy> diffuseStrategies = new ArrayList<DiffusionStrategy>();
+    private DiffusionType diffuseType;
     private DiffusionStrategy diffuseStrategy;
 
-    public CaptorImpl(DiffusionStrategy strategy) {
-        System.out.println(this + "initialized with default value " + value);
-        addDiffusionStrategy(strategy);
-        selectDiffuseStrategy(strategy.getName());
+    public CaptorImpl() {
+        System.out.println(this + " initialized with default value " + value);
     }
 
-    public void addDiffusionStrategy(DiffusionStrategy diffusionStrategy) {
-        diffuseStrategies.add(diffusionStrategy);
-    }
-
-    public void selectDiffuseStrategy(String name) {
-        // Names are uniquely tested inside the diffusion abstraction
-        diffuseStrategies.forEach(strategy -> {
-            if (name.equals(strategy.getName())) {
-                diffuseStrategy = strategy;
-            }
-        });
+    public void setDiffuseStrategy(DiffusionType type) {
+        switch (type) {
+            case ATOMIC:
+                diffuseStrategy = new AtomicDiffusionStrategy(DiffusionType.ATOMIC);
+                break;
+            case EPOC:
+                diffuseStrategy = new EpocDiffusionStrategy(DiffusionType.EPOC);
+                break;
+            case SEQUENTIAL:
+                diffuseStrategy = new SequentialDiffusionStrategy(DiffusionType.SEQUENTIAL);
+                break;
+        }
+        diffuseStrategy.configure(this, observers);
     }
 
     public DiffusionStrategy getDiffusionStrategy() {
         return diffuseStrategy;
+    }
+
+    @Override
+    public void tick() {
+        System.out.println("Tick with " + getDiffusionStrategy() + " => " + ++value);
+        diffuseStrategy.execute();
     }
 }

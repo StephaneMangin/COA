@@ -12,5 +12,5 @@ public interface Observer<T> {
      *
      * @param subject
      */
-    void update(T subject);
+    Void update(T subject);
 }

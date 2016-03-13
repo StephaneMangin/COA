@@ -1,7 +1,11 @@
 package org.istic.coa.tp.implementationHelpers;
 
+import org.istic.coa.tp.interfaces.AsyncCaptor;
 import org.istic.coa.tp.interfaces.Captor;
 import org.istic.coa.tp.interfaces.Observer;
+
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
 
 /**
  * Created by stephane on 06/01/16.
@@ -17,19 +21,8 @@ public abstract class AbstractCaptor extends AbstractSubject implements Captor {
         name = "Capteur_" + ++identifier;
     }
 
-    public void setValue(int value) {
-        this.value = value;
-    }
-
     public int getValue() {
         return value;
-    }
-
-
-    public void tick() {
-        for (Observer obs: observers) {
-            obs.update(this);
-        }
     }
 
     @Override

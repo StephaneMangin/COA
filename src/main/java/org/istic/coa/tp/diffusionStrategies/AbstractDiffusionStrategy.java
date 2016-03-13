@@ -1,32 +1,41 @@
 package org.istic.coa.tp.diffusionStrategies;
 
+import org.istic.coa.tp.interfaces.Captor;
 import org.istic.coa.tp.interfaces.DiffusionStrategy;
+import org.istic.coa.tp.interfaces.Observer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Abstract some behaviors of a diffusion system
+ * Such as configuration and diffusion types
+ *
  * Created by blacknight on 13/03/16.
  */
 public abstract class AbstractDiffusionStrategy implements DiffusionStrategy {
 
-    // Keep an eye on names attributed to strategies. To be uniquely referenced.
-    private static List<String> names = new ArrayList<String>();
-    private String name;
+    private DiffusionType type;
+    protected List<Observer> clients = new ArrayList<>();
+    protected Captor captor;
 
-    public AbstractDiffusionStrategy(String name) {
-        if (names.contains(name)) {
-            throw new ArrayStoreException("This name is already used by another strategy.");
-        }
-        this.name = name;
+    public AbstractDiffusionStrategy(DiffusionType type) {
+        this.type = type;
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public DiffusionType getDiffusionType() {
+        return type;
     }
 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + "[" + this.name + "]";
+        return "DiffusionStrategy[" + type + "]";
+    }
+
+    @Override
+    public void configure(Captor captor, List<Observer> clients) {
+        this.captor = captor;
+        this.clients = clients;
     }
 }

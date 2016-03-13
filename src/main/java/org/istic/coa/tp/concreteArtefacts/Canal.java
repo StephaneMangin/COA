@@ -1,18 +1,22 @@
 package org.istic.coa.tp.concreteArtefacts;
 
 import org.istic.coa.tp.implementationHelpers.AbstractSubject;
-import org.istic.coa.tp.interfaces.Captor;
-import org.istic.coa.tp.interfaces.Observer;
-import org.istic.coa.tp.interfaces.CaptorObserver;
+import org.istic.coa.tp.interfaces.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
+import java.util.Queue;
+import java.util.concurrent.*;
 
 /**
  * Created by stephane on 06/01/16.
  */
-public class Canal extends AbstractSubject implements Captor, CaptorObserver {
+public class Canal extends AbstractSubject implements AsyncCaptor, Observer<Captor> {
 
+    protected String name;
     private Captor captor;
-    private int delay;
+    private int delay = 0;
+    private static ScheduledExecutorService executorService = Executors.newScheduledThreadPool(100);
+    private static int identifier = 0;
 
     /**
      * Constrcutor
@@ -20,15 +24,15 @@ public class Canal extends AbstractSubject implements Captor, CaptorObserver {
      * @param captor connected to
      */
     public Canal(Captor captor) {
+        name = "Canal_" + ++identifier;
         captor.attach(this);
         this.captor = captor;
-        System.out.println(this + " initialized for captor " + captor);
+        System.out.println(this + ".captor = " + captor);
     }
 
-    public int getValue() throws InterruptedException {
-        int value = captor.getValue();
-        Thread.sleep(delay);
-        return value;
+    public Future<Integer> getValue() {
+        Callable<Integer> methodRequest = () -> captor.getValue();
+        return executorService.schedule(methodRequest, delay, TimeUnit.MILLISECONDS);
     }
 
     /**
@@ -41,13 +45,7 @@ public class Canal extends AbstractSubject implements Captor, CaptorObserver {
     }
 
     public void tick() {
-        throw new NotImplementedException();
-    }
-
-    public void update(Captor captor) {
-        for (Observer obs: observers) {
-            obs.update(this);
-        }
+        captor.tick();
     }
 
     /**
@@ -55,5 +53,16 @@ public class Canal extends AbstractSubject implements Captor, CaptorObserver {
      */
     public void setDelay(int delay) {
         this.delay = delay;
+        System.out.println(this + ".delay = " + delay);
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    @Override
+    public void update(Captor subject) {
+        observers.forEach(observer -> observer.update(this));
     }
 }

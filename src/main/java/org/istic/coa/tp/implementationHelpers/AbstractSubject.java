@@ -5,6 +5,7 @@ import org.istic.coa.tp.interfaces.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadFactory;
 
 /**
  * Created by stephane on 06/01/16.
@@ -18,5 +19,8 @@ public abstract class AbstractSubject implements Subject {
     }
     public void detach(Observer observer) {
         observers.remove(observer);
+    }
+    public List<Observer> getObservers() {
+        return observers;
     }
 }
