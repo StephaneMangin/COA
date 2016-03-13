@@ -1,4 +1,4 @@
-package org.istic.coa.tp.Core;
+package org.istic.coa.tp;
 
 import org.istic.coa.tp.Core.concreteArtefacts.CaptorScheduleProcessor;
 import org.istic.coa.tp.Core.concreteArtefacts.Display;
@@ -14,20 +14,20 @@ public class StandAloneLauncher {
     public static void main(String[] args) {
 
         // The capteur
-        CaptorImpl captor = new CaptorImpl();
-        captor.setDiffuseStrategy(DiffusionType.SEQUENTIAL);
+        CaptorImpl captor = new CaptorImpl(null);
+        captor.setDiffuseStrategy(DiffusionType.EPOC);
         CaptorScheduleProcessor process = new CaptorScheduleProcessor(1, 1500, 1);
         process.incrementWithStepByPeriod(captor, 200);
 
         // First canal
         Channel channel1 = new Channel(captor);
-        Display display1 = new Display();
+        Display display1 = new Display(null);
         channel1.setDelay(150);
         channel1.attach(display1);
 
         // Second canal
         Channel channel2 = new Channel(captor);
-        Display display2 = new Display();
+        Display display2 = new Display(null);
         channel2.setDelay(600);
         channel2.attach(display2);
     }

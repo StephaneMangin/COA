@@ -6,6 +6,7 @@ import org.istic.coa.tp.Core.diffusionStrategies.EpocDiffusionStrategy;
 import org.istic.coa.tp.Core.diffusionStrategies.SequentialDiffusionStrategy;
 import org.istic.coa.tp.Core.implementationHelpers.AbstractCaptor;
 import org.istic.coa.tp.Core.interfaces.DiffusionStrategy;
+import org.istic.coa.tp.Gui.Controller;
 
 /**
  * Define a real capteur with diffusion strategy included
@@ -14,10 +15,12 @@ import org.istic.coa.tp.Core.interfaces.DiffusionStrategy;
  */
 public class CaptorImpl extends AbstractCaptor {
 
+    private final Controller controller;
     private DiffusionStrategy diffuseStrategy;
 
-    public CaptorImpl() {
+    public CaptorImpl(Controller controller) {
         System.out.println(this + " initialized");
+        this.controller = controller;
     }
 
     public void setDiffuseStrategy(DiffusionType type) {
@@ -43,5 +46,8 @@ public class CaptorImpl extends AbstractCaptor {
     public void tick() {
         System.out.println("Tick with " + getDiffusionStrategy() + "with value " + values);
         diffuseStrategy.execute();
+        if (controller != null) {
+            controller.update(this);
+        }
     }
 }

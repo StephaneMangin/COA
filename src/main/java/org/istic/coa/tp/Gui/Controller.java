@@ -11,12 +11,10 @@ import org.istic.coa.tp.Core.concreteArtefacts.Channel;
 import org.istic.coa.tp.Core.concreteArtefacts.CaptorScheduleProcessor;
 import org.istic.coa.tp.Core.concreteArtefacts.Display;
 import org.istic.coa.tp.Core.diffusionStrategies.DiffusionType;
-import org.istic.coa.tp.Gui.ObservableValues.CaptorObservableTime;
-import org.istic.coa.tp.Gui.ObservableValues.CaptorObservableValue;
-import org.istic.coa.tp.Gui.ObservableValues.DisplayObservableTime;
-import org.istic.coa.tp.Gui.ObservableValues.DisplayObservableValue;
+import org.istic.coa.tp.Core.interfaces.Captor;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 
@@ -35,10 +33,11 @@ public class Controller implements Initializable{
 
     Channel channelA;
     Channel channelB;
-    CaptorImpl captor = new CaptorImpl();
-    Display displayA = new Display();
-    Display displayB = new Display();
+    CaptorImpl captor = new CaptorImpl(this);
+    Display displayA = new Display(this);
+    Display displayB = new Display(this);
     CaptorScheduleProcessor processor = new CaptorScheduleProcessor(1, 1500, 1);
+
 
     public Controller() {
         // Define the strategy and launch the captor processor
@@ -71,15 +70,33 @@ public class Controller implements Initializable{
         captor.setDiffuseStrategy(DiffusionType.EPOC);
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Bind all variables with each concreate artefacts
-        valueCaptor.textProperty().bind(new CaptorObservableValue(captor));
-        valueA.textProperty().bind(new DisplayObservableValue(displayA));
-        valueB.textProperty().bind(new DisplayObservableValue(displayB));
-        timeCaptor.textProperty().bind(new CaptorObservableTime(captor));
-        timeA.textProperty().bind(new DisplayObservableTime(displayA));
-        timeB.textProperty().bind(new DisplayObservableTime(displayB));
+
+    }
+
+    public void update(Display display) {
+        DecimalFormat df = new DecimalFormat("#.##");
+        if (valueA != null && timeA != null) {
+            if (display.equals(displayA)) {
+                valueA.setText(String.valueOf(display.getValue()));
+                timeA.setText(String.valueOf(df.format(captor.getValues().getTime())));
+
+            }
+        }
+        if (valueB != null && timeB != null) {
+            if (display.equals(displayB)) {
+                valueB.setText(String.valueOf(display.getValue()));
+                timeB.setText(String.valueOf(df.format(captor.getValues().getTime())));
+            }
+        }
+    }
+
+    public void update(Captor captor) {
+        DecimalFormat df = new DecimalFormat("#.##");
+        if (valueCaptor != null && timeCaptor != null) {
+            valueCaptor.setText(String.valueOf(captor.getValues().getValue()));
+            timeCaptor.setText(String.valueOf(df.format(captor.getValues().getTime())));
+        }
     }
 }

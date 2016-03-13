@@ -1,8 +1,15 @@
 package org.istic.coa.tp.Core.concreteArtefacts;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableStringValue;
 import org.istic.coa.tp.Core.interfaces.AsyncCaptor;
 import org.istic.coa.tp.Core.interfaces.Observer;
 import org.istic.coa.tp.Core.interfaces.ValuesContainer;
+import org.istic.coa.tp.Gui.Controller;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Define a visualizer for values
@@ -11,24 +18,30 @@ import org.istic.coa.tp.Core.interfaces.ValuesContainer;
  */
 public class Display implements Observer<AsyncCaptor> {
 
+    private final Controller controller;
     protected String name;
     private Integer value = 0;
     private Double time = 0.0;
     private static int identifier = 0;
 
-    public Display() {
+    public Display(Controller controller) {
+        this.controller = controller;
         name = "Display_" + ++identifier;
     }
 
     public Void update(AsyncCaptor captor) {
         try {
             ValuesContainer container = captor.getValues().get();
+            String oldValue = String.valueOf(value);
             value = container.getValue();
             if (time <= container.getTime()) {
                 time = container.getTime();
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        if (controller != null) {
+            controller.update(this);
         }
         System.out.println(this + " receive value=" + value + " with time=" + time);
         return null;
@@ -44,7 +57,7 @@ public class Display implements Observer<AsyncCaptor> {
      *
      * @return
      */
-    public int getValue() {
+    public Integer getValue() {
         return value;
     }
 
