@@ -13,9 +13,9 @@ public class Application {
 
                 // The capteur
         CaptorImpl captor = new CaptorImpl();
-        captor.setDiffuseStrategy(DiffusionType.ATOMIC);
+        captor.setDiffuseStrategy(DiffusionType.SEQUENTIAL);
         CaptorScheduler scheduler = new CaptorScheduler();
-        scheduler.activate(captor, 2000);
+        scheduler.activate(captor, 200);
 
         // First canal
         Canal canal1 = new Canal(captor);

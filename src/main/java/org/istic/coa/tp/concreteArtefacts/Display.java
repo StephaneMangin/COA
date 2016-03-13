@@ -2,8 +2,7 @@ package org.istic.coa.tp.concreteArtefacts;
 
 import org.istic.coa.tp.interfaces.AsyncCaptor;
 import org.istic.coa.tp.interfaces.Observer;
-
-import java.util.concurrent.ExecutionException;
+import org.istic.coa.tp.interfaces.ValuesContainer;
 
 /**
  * Define a visualizer for values
@@ -13,7 +12,8 @@ import java.util.concurrent.ExecutionException;
 public class Display implements Observer<AsyncCaptor> {
 
     protected String name;
-    private int value = 0;
+    private Integer value = 0;
+    private Double time = 0.0;
     private static int identifier = 0;
 
     public Display() {
@@ -22,11 +22,15 @@ public class Display implements Observer<AsyncCaptor> {
 
     public Void update(AsyncCaptor captor) {
         try {
-            value = captor.getValue().get();
+            ValuesContainer container = captor.getValues().get();
+            value = container.getValue();
+            if (time <= container.getTime()) {
+                time = container.getTime();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(this + " receive value " + value);
+        System.out.println(this + " receive value=" + value + " with time=" + time);
         return null;
     }
 
@@ -42,5 +46,14 @@ public class Display implements Observer<AsyncCaptor> {
      */
     public int getValue() {
         return value;
+    }
+
+    /**
+     * Returns the internal time related value of this screen
+     *
+     * @return
+     */
+    public Double getTime() {
+        return time;
     }
 }

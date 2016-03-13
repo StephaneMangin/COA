@@ -2,9 +2,7 @@ package org.istic.coa.tp.concreteArtefacts;
 
 import org.istic.coa.tp.implementationHelpers.AbstractSubject;
 import org.istic.coa.tp.interfaces.*;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.util.Queue;
 import java.util.concurrent.*;
 
 /**
@@ -30,8 +28,8 @@ public class Canal extends AbstractSubject implements AsyncCaptor, Observer<Capt
         System.out.println(this + ".captor = " + captor);
     }
 
-    public Future<Integer> getValue() {
-        Callable<Integer> methodRequest = () -> captor.getValue();
+    public Future<ValuesContainer> getValues() {
+        Callable<ValuesContainer> methodRequest= () -> captor.getValues();
         return executorService.schedule(methodRequest, delay, TimeUnit.MILLISECONDS);
     }
 

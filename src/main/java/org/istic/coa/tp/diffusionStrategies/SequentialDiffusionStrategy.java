@@ -1,31 +1,28 @@
 package org.istic.coa.tp.diffusionStrategies;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by stephane on 12/01/16.
  */
 public class SequentialDiffusionStrategy extends AbstractDiffusionStrategy {
 
-    private static List<Callable> calls = new ArrayList<>();
+    private ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     public SequentialDiffusionStrategy(DiffusionType type) {
         super(type);
     }
 
+    /**
+     * Sequential calls
+     *
+     * All calls are processed once but list of calls is flushed between each execute calls
+     *
+     * Data can be lost.
+     *
+     */
     public void execute() {
-        // If callables left, there are lost
-        calls.clear();
-        clients.forEach(observer -> calls.add(() -> observer.update(this)));
-        calls.forEach(voidCallable -> {
-            try {
-                // Active wait for all callables to be called
-                voidCallable.call();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
+        clients.forEach(observer -> executorService.submit(() -> observer.update(captor)));
     }
 }

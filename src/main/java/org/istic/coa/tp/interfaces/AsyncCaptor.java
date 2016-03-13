@@ -14,7 +14,7 @@ public interface AsyncCaptor extends Subject {
      *
      * @return
      */
-    Future<Integer> getValue();
+    Future<ValuesContainer> getValues();
 
     /**
      * Send a request for value updates to each observers

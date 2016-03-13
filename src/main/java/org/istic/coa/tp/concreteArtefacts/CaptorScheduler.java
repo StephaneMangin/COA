@@ -12,6 +12,10 @@ public class CaptorScheduler {
     public void activate(final Captor captor, double perdiodInMiliSeconds) {
         TimerTask task = new TimerTask() {
             public void run() {
+                // Increament value in N by 1 and time by 0.01
+                captor.setValues(new CaptorValuesContainer(
+                        captor.getValues().getValue() + 1,
+                        captor.getValues().getTime() + 0.01));
                 captor.tick();
             }
         };

@@ -1,11 +1,8 @@
 package org.istic.coa.tp.implementationHelpers;
 
-import org.istic.coa.tp.interfaces.AsyncCaptor;
+import org.istic.coa.tp.concreteArtefacts.CaptorValuesContainer;
 import org.istic.coa.tp.interfaces.Captor;
-import org.istic.coa.tp.interfaces.Observer;
-
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
+import org.istic.coa.tp.interfaces.ValuesContainer;
 
 /**
  * Created by stephane on 06/01/16.
@@ -13,7 +10,7 @@ import java.util.concurrent.FutureTask;
 public abstract class AbstractCaptor extends AbstractSubject implements Captor {
 
     protected String name;
-    protected int value = 0;
+    protected ValuesContainer values = new CaptorValuesContainer(0, 0.0);
 
     private static int identifier = 0;
 
@@ -21,12 +18,18 @@ public abstract class AbstractCaptor extends AbstractSubject implements Captor {
         name = "Capteur_" + ++identifier;
     }
 
-    public int getValue() {
-        return value;
+    @Override
+    public ValuesContainer getValues() {
+        return values;
     }
 
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public void setValues(ValuesContainer valuesContainer) {
+        values = valuesContainer;
     }
 }
