@@ -1,6 +1,6 @@
 package org.istic.coa.tp;
 
-import org.istic.coa.tp.interfaces.ObserverDeCapteur;
+import org.istic.coa.tp.interfaces.Observer;
 import org.istic.coa.tp.interfaces.Subject;
 
 import java.util.ArrayList;
@@ -11,12 +11,12 @@ import java.util.List;
  */
 public abstract class AbstractSubject implements Subject {
 
-    protected List<ObserverDeCapteur> observers = new ArrayList<ObserverDeCapteur>();
+    protected List<Observer> observers = new ArrayList<Observer>();
 
-    public void attach(ObserverDeCapteur observer) {
+    public void attach(Observer observer) {
         observers.add(observer);
     }
-    public void detach(ObserverDeCapteur observer) {
+    public void detach(Observer observer) {
         observers.remove(observer);
     }
 }
