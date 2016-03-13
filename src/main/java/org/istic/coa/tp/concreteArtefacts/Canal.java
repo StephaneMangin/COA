@@ -62,7 +62,8 @@ public class Canal extends AbstractSubject implements AsyncCaptor, Observer<Capt
     }
 
     @Override
-    public void update(Captor subject) {
+    public Void update(Captor subject) {
         observers.forEach(observer -> observer.update(this));
+        return null;
     }
 }

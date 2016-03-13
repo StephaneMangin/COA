@@ -20,13 +20,14 @@ public class Display implements Observer<AsyncCaptor> {
         name = "Screen_" + ++identifier;
     }
 
-    public void update(AsyncCaptor captor) {
+    public Void update(AsyncCaptor captor) {
         try {
             value = captor.getValue().get();
         } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println(this + " receive value " + value);
+        return null;
     }
 
     @Override
