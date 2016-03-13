@@ -22,10 +22,16 @@ public class Controller implements Initializable{
     @FXML TextField valueCaptor;
     @FXML Text valueA;
     @FXML Text valueB;
+    @FXML Text valueC;
+    @FXML Text valueD;
+    @FXML Text valueE;
 
     @FXML Text timeCaptor;
     @FXML Text timeA;
     @FXML Text timeB;
+    @FXML Text timeC;
+    @FXML Text timeD;
+    @FXML Text timeE;
 
     @FXML RadioButton atomic;
     @FXML RadioButton sequential;
@@ -33,9 +39,15 @@ public class Controller implements Initializable{
 
     Channel channelA;
     Channel channelB;
+    Channel channelC;
+    Channel channelD;
+    Channel channelE;
     CaptorImpl captor = new CaptorImpl(this);
     Display displayA = new Display(this);
     Display displayB = new Display(this);
+    Display displayC = new Display(this);
+    Display displayD = new Display(this);
+    Display displayE = new Display(this);
     CaptorScheduleProcessor processor = new CaptorScheduleProcessor(1, 1500, 1);
 
 
@@ -51,8 +63,23 @@ public class Controller implements Initializable{
 
         // Second canal
         channelB = new Channel(captor);
-        channelB.setDelay(600);
+        channelB.setDelay(250);
         channelB.attach(displayB);
+
+        // Third canal
+        channelC = new Channel(captor);
+        channelC.setDelay(600);
+        channelC.attach(displayC);
+
+        // Fourth canal
+        channelD = new Channel(captor);
+        channelD.setDelay(1200);
+        channelD.attach(displayD);
+
+        // Fifth canal
+        channelE = new Channel(captor);
+        channelE.setDelay(2500);
+        channelE.attach(displayE);
     }
 
     @FXML
@@ -88,6 +115,24 @@ public class Controller implements Initializable{
             if (display.equals(displayB)) {
                 valueB.setText(String.valueOf(display.getValue()));
                 timeB.setText(String.valueOf(df.format(captor.getValues().getTime())));
+            }
+        }
+        if (valueC != null && timeC != null) {
+            if (display.equals(displayC)) {
+                valueC.setText(String.valueOf(display.getValue()));
+                timeC.setText(String.valueOf(df.format(captor.getValues().getTime())));
+            }
+        }
+        if (valueD != null && timeD != null) {
+            if (display.equals(displayD)) {
+                valueD.setText(String.valueOf(display.getValue()));
+                timeD.setText(String.valueOf(df.format(captor.getValues().getTime())));
+            }
+        }
+        if (valueE != null && timeE != null) {
+            if (display.equals(displayE)) {
+                valueE.setText(String.valueOf(display.getValue()));
+                timeE.setText(String.valueOf(df.format(captor.getValues().getTime())));
             }
         }
     }

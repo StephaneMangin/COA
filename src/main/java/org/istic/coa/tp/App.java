@@ -16,7 +16,7 @@ public class App extends javafx.application.Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/interface.fxml"));
         primaryStage.setTitle("COA - MANGIN - ActiveObject Implementation");
-        primaryStage.setScene(new Scene(root, 250, 350));
+        primaryStage.setScene(new Scene(root, 915, 275));
         primaryStage.show();
     }
 
