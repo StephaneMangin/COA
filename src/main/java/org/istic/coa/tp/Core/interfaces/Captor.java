@@ -1,8 +1,4 @@
-package org.istic.coa.tp.interfaces;
-
-import org.istic.coa.tp.concreteArtefacts.CaptorValuesContainer;
-
-import java.util.HashMap;
+package org.istic.coa.tp.Core.interfaces;
 
 /**
  * Define the basics methods for a capteur

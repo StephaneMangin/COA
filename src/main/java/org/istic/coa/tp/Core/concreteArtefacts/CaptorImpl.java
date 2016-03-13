@@ -1,15 +1,11 @@
-package org.istic.coa.tp.concreteArtefacts;
+package org.istic.coa.tp.Core.concreteArtefacts;
 
-import org.istic.coa.tp.diffusionStrategies.AtomicDiffusionStrategy;
-import org.istic.coa.tp.diffusionStrategies.DiffusionType;
-import org.istic.coa.tp.diffusionStrategies.EpocDiffusionStrategy;
-import org.istic.coa.tp.diffusionStrategies.SequentialDiffusionStrategy;
-import org.istic.coa.tp.implementationHelpers.AbstractCaptor;
-import org.istic.coa.tp.interfaces.DiffusionStrategy;
-import org.istic.coa.tp.interfaces.ValuesContainer;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.istic.coa.tp.Core.diffusionStrategies.AtomicDiffusionStrategy;
+import org.istic.coa.tp.Core.diffusionStrategies.DiffusionType;
+import org.istic.coa.tp.Core.diffusionStrategies.EpocDiffusionStrategy;
+import org.istic.coa.tp.Core.diffusionStrategies.SequentialDiffusionStrategy;
+import org.istic.coa.tp.Core.implementationHelpers.AbstractCaptor;
+import org.istic.coa.tp.Core.interfaces.DiffusionStrategy;
 
 /**
  * Define a real capteur with diffusion strategy included

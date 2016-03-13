@@ -1,11 +1,10 @@
-package org.istic.coa.tp.implementationHelpers;
+package org.istic.coa.tp.Core.implementationHelpers;
 
-import org.istic.coa.tp.interfaces.Observer;
-import org.istic.coa.tp.interfaces.Subject;
+import org.istic.coa.tp.Core.interfaces.Observer;
+import org.istic.coa.tp.Core.interfaces.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadFactory;
 
 /**
  * Created by stephane on 06/01/16.

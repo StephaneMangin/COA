@@ -1,4 +1,4 @@
-package org.istic.coa.tp.interfaces;
+package org.istic.coa.tp.Core.interfaces;
 
 /**
  * Define the basis methods for an observer

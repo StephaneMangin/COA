@@ -1,13 +1,5 @@
-package org.istic.coa.tp.diffusionStrategies;
+package org.istic.coa.tp.Core.diffusionStrategies;
 
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by stephane on 06/01/16.

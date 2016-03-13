@@ -1,14 +1,17 @@
-package org.istic.coa.tp.concreteArtefacts;
+package org.istic.coa.tp.Core.concreteArtefacts;
 
-import org.istic.coa.tp.implementationHelpers.AbstractSubject;
-import org.istic.coa.tp.interfaces.*;
+import org.istic.coa.tp.Core.implementationHelpers.AbstractSubject;
+import org.istic.coa.tp.Core.interfaces.AsyncCaptor;
+import org.istic.coa.tp.Core.interfaces.Captor;
+import org.istic.coa.tp.Core.interfaces.Observer;
+import org.istic.coa.tp.Core.interfaces.ValuesContainer;
 
 import java.util.concurrent.*;
 
 /**
  * Created by stephane on 06/01/16.
  */
-public class Canal extends AbstractSubject implements AsyncCaptor, Observer<Captor> {
+public class Channel extends AbstractSubject implements AsyncCaptor, Observer<Captor> {
 
     protected String name;
     private Captor captor;
@@ -21,7 +24,7 @@ public class Canal extends AbstractSubject implements AsyncCaptor, Observer<Capt
      *
      * @param captor connected to
      */
-    public Canal(Captor captor) {
+    public Channel(Captor captor) {
         name = "Canal_" + ++identifier;
         captor.attach(this);
         this.captor = captor;

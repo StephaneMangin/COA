@@ -1,4 +1,5 @@
-package org.istic.coa.tp.interfaces;
+package org.istic.coa.tp.Core.interfaces;
+
 
 import java.util.concurrent.Future;
 

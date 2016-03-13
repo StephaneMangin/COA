@@ -1,6 +1,6 @@
-package org.istic.coa.tp.interfaces;
+package org.istic.coa.tp.Core.interfaces;
 
-import org.istic.coa.tp.diffusionStrategies.DiffusionType;
+import org.istic.coa.tp.Core.diffusionStrategies.DiffusionType;
 
 import java.util.List;
 

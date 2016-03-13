@@ -1,6 +1,6 @@
-package org.istic.coa.tp.concreteArtefacts;
+package org.istic.coa.tp.Core.concreteArtefacts;
 
-import org.istic.coa.tp.interfaces.Captor;
+import org.istic.coa.tp.Core.interfaces.Captor;
 
 import java.util.Timer;
 import java.util.TimerTask;

@@ -1,8 +1,8 @@
-package org.istic.coa.tp.diffusionStrategies;
+package org.istic.coa.tp.Core.diffusionStrategies;
 
-import org.istic.coa.tp.interfaces.Captor;
-import org.istic.coa.tp.interfaces.DiffusionStrategy;
-import org.istic.coa.tp.interfaces.Observer;
+import org.istic.coa.tp.Core.interfaces.Captor;
+import org.istic.coa.tp.Core.interfaces.DiffusionStrategy;
+import org.istic.coa.tp.Core.interfaces.Observer;
 
 import java.util.ArrayList;
 import java.util.List;

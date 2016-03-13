@@ -1,8 +1,8 @@
-package org.istic.coa.tp.concreteArtefacts;
+package org.istic.coa.tp.Core.concreteArtefacts;
 
-import org.istic.coa.tp.interfaces.AsyncCaptor;
-import org.istic.coa.tp.interfaces.Observer;
-import org.istic.coa.tp.interfaces.ValuesContainer;
+import org.istic.coa.tp.Core.interfaces.AsyncCaptor;
+import org.istic.coa.tp.Core.interfaces.Observer;
+import org.istic.coa.tp.Core.interfaces.ValuesContainer;
 
 /**
  * Define a visualizer for values
@@ -17,7 +17,7 @@ public class Display implements Observer<AsyncCaptor> {
     private static int identifier = 0;
 
     public Display() {
-        name = "Screen_" + ++identifier;
+        name = "Display_" + ++identifier;
     }
 
     public Void update(AsyncCaptor captor) {

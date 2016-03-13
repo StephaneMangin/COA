@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.*?>
+<AnchorPane
+        maxHeight="-Infinity" maxWidth="-Infinity"
+        minHeight="-Infinity" minWidth="-Infinity"
+        prefHeight="400.0" prefWidth="600.0"
+        xmlns="http://javafx.com/javafx/8"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="org.istic.coa.tp.Gui.Controller">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="152.0" stroke="BLACK" strokeType="INSIDE" width="314.0" />
+      <Text fx:id="valueA" layoutX="134.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Text>
+      <Text layoutX="94.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="timeA" layoutX="184.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f54119" height="152.0" layoutX="313.0" stroke="BLACK" strokeType="INSIDE" width="286.0" />
+      <Text fx:id="valueB" layoutX="442.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Text>
+      <Text layoutX="399.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="timeB" layoutX="500.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Label layoutX="64.0" layoutY="161.0" text="Afficheur1">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="371.0" layoutY="164.0" text="Afficheur2">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="atomic" layoutX="63.0" layoutY="272.0" mnemonicParsing="false" onAction="#setAtomicDiffusion" text="Atomique">
+         <toggleGroup>
+            <ToggleGroup fx:id="diffusionStrategy" />
+         </toggleGroup>
+         <font>
+            <Font size="21.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="sequential" layoutX="63.0" layoutY="300.0" mnemonicParsing="false" onAction="#setSequentialDiffusion" text="Séquentiel" toggleGroup="$diffusionStrategy">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="epoc" layoutX="63.0" layoutY="331.0" mnemonicParsing="false" onAction="#setEpocDiffusion" selected="true" text="Epoque" toggleGroup="$diffusionStrategy">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </RadioButton>
+      <Label layoutX="61.0" layoutY="232.0" text="Diffusion strategy">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="119.0" layoutX="312.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="286.0" />
+      <TextField fx:id="valueCaptor" alignment="CENTER" editable="false" layoutX="371.0" layoutY="302.0" prefHeight="60.0" prefWidth="160.0" promptText="0">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </TextField>
+      <Label layoutX="388.0" layoutY="232.0" text="Captor">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="370.0" layoutY="379.0" text="Version :" textFill="WHITE" />
+      <Text fx:id="timeCaptor" fill="WHITE" layoutX="460.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+   </children>
+</AnchorPane>
