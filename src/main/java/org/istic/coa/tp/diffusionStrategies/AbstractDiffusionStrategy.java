@@ -1,5 +1,7 @@
 package org.istic.coa.tp.diffusionStrategies;
 
+import org.istic.coa.tp.interfaces.DiffusionStrategy;
+
 import java.util.ArrayList;
 import java.util.List;
 

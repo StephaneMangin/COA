@@ -1,4 +1,4 @@
-package org.istic.coa.tp;
+package org.istic.coa.tp.implementationHelpers;
 
 import org.istic.coa.tp.interfaces.Captor;
 import org.istic.coa.tp.interfaces.Observer;
@@ -27,7 +27,6 @@ public abstract class AbstractCaptor extends AbstractSubject implements Captor {
 
 
     public void tick() {
-        System.out.println(this + " has ticked with value " + value);
         for (Observer obs: observers) {
             obs.update(this);
         }

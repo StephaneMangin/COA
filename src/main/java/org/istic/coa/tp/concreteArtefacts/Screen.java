@@ -1,4 +1,4 @@
-package org.istic.coa.tp;
+package org.istic.coa.tp.concreteArtefacts;
 
 import org.istic.coa.tp.interfaces.Captor;
 import org.istic.coa.tp.interfaces.CaptorObserver;
@@ -9,14 +9,20 @@ import org.istic.coa.tp.interfaces.CaptorObserver;
 public class Screen implements CaptorObserver {
 
     protected String name;
+    private int value;
     private static int identifier = 0;
 
     public Screen() {
-        name = "Afficheur_" + ++identifier;
+        name = "Screen_" + ++identifier;
     }
 
-    public void update(Captor c) {
-        System.out.println(this + " got value " + c.getValue());
+    public void update(Captor captor) {
+        try {
+            value = captor.getValue();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(this + " receive value " + value);
     }
 
     @Override

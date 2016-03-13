@@ -1,6 +1,7 @@
-package org.istic.coa.tp;
+package org.istic.coa.tp.concreteArtefacts;
 
-import org.istic.coa.tp.diffusionStrategies.DiffusionStrategy;
+import org.istic.coa.tp.implementationHelpers.AbstractCaptor;
+import org.istic.coa.tp.interfaces.DiffusionStrategy;
 
 import java.util.ArrayList;
 import java.util.List;

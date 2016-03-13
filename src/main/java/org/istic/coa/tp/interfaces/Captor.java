@@ -12,7 +12,7 @@ public interface Captor extends Subject {
      *
      * @return
      */
-    int getValue();
+    int getValue() throws InterruptedException;
 
     /**
      * Send a request for value updates to each observers

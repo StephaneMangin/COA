@@ -1,4 +1,4 @@
-package org.istic.coa.tp;
+package org.istic.coa.tp.implementationHelpers;
 
 import org.istic.coa.tp.interfaces.Observer;
 import org.istic.coa.tp.interfaces.Subject;

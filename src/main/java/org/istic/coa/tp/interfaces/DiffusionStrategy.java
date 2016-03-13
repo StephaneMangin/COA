@@ -1,4 +1,4 @@
-package org.istic.coa.tp.diffusionStrategies;
+package org.istic.coa.tp.interfaces;
 
 /**
  * Define the basis methods for a diffusion algorythm
