@@ -44,10 +44,10 @@ public class CaptorImpl extends AbstractCaptor {
 
     @Override
     public void tick() {
-        System.out.println("Tick with " + getDiffusionStrategy() + "with value " + values);
         diffuseStrategy.execute();
         if (controller != null) {
             controller.update(this);
         }
+        System.out.println("Tick with " + getDiffusionStrategy() + "with value " + values);
     }
 }

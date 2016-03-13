@@ -53,7 +53,7 @@ public class Controller implements Initializable{
 
     public Controller() {
         // Define the strategy and launch the captor processor
-        captor.setDiffuseStrategy(DiffusionType.SEQUENTIAL);
+        captor.setDiffuseStrategy(DiffusionType.ATOMIC);
         processor.incrementWithStepByPeriod(captor, 200);
 
         // First canal
@@ -108,7 +108,6 @@ public class Controller implements Initializable{
             if (display.equals(displayA)) {
                 valueA.setText(String.valueOf(display.getValue()));
                 timeA.setText(String.valueOf(df.format(captor.getValues().getTime())));
-
             }
         }
         if (valueB != null && timeB != null) {

@@ -46,7 +46,7 @@
             <Font size="22.0" />
          </font>
       </Text>
-      <RadioButton fx:id="atomic" layoutX="552.0" layoutY="186.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAtomicDiffusion" text="Atomic">
+      <RadioButton fx:id="atomic" layoutX="552.0" layoutY="186.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAtomicDiffusion" text="Atomic" selected="true">
          <toggleGroup>
             <ToggleGroup fx:id="diffusionStrategy" />
          </toggleGroup>
@@ -59,7 +59,7 @@
             <Font size="21.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="epoc" layoutX="575.0" layoutY="223.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setEpocDiffusion" selected="true" text="Epoc" toggleGroup="$diffusionStrategy">
+      <RadioButton fx:id="epoc" layoutX="575.0" layoutY="223.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setEpocDiffusion" text="Epoc" toggleGroup="$diffusionStrategy">
          <font>
             <Font size="21.0" />
          </font>
