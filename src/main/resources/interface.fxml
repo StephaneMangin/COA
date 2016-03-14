@@ -4,49 +4,47 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.istic.coa.tp.Gui.Controller">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.istic.coa.tp.Gui.Controller">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fe9f8" height="113.0" layoutX="744.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="165.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2aaf5" height="113.0" layoutX="563.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="165.0" />
-      <TitledPane animated="false" text="untitled" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff8d87" height="113.0" layoutX="382.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="165.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7cc0ff" height="113.0" layoutX="5.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="187.0" />
-      <Text fx:id="valueA" layoutX="16.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fe9f8" height="113.0" layoutX="170.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="165.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2aaf5" height="113.0" layoutX="5.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="165.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff8d87" height="113.0" layoutX="5.0" layoutY="230.0" stroke="BLACK" strokeType="INSIDE" width="165.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7cc0ff" height="113.0" layoutX="5.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="165.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1ffbd" height="113.0" layoutX="170.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="165.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="244.0" layoutX="170.0" layoutY="230.0" stroke="BLACK" strokeType="INSIDE" width="165.0" />
+      <Text fx:id="valueA" layoutX="14.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
             <Font size="43.0" />
          </font>
       </Text>
-      <Text layoutX="18.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :">
+      <Text layoutX="10.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :">
          <font>
-            <Font size="18.0" />
+            <Font size="10.0" />
          </font>
       </Text>
-      <Text fx:id="timeA" layoutX="82.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <Text fx:id="timeA" layoutX="45.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
-            <Font size="21.0" />
+            <Font size="10.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1ffbd" height="113.0" layoutX="202.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="165.0" />
-      <Text fx:id="valueB" layoutX="213.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <Text fx:id="valueB" layoutX="181.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
             <Font size="43.0" />
          </font>
       </Text>
-      <Text layoutX="213.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :">
+      <Text layoutX="175.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :">
          <font>
-            <Font size="19.0" />
+            <Font size="10.0" />
          </font>
       </Text>
-      <Text fx:id="timeB" layoutX="281.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <Text fx:id="timeB" layoutX="209.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
-            <Font size="22.0" />
+            <Font size="10.0" />
          </font>
       </Text>
-      <RadioButton fx:id="atomic" layoutX="552.0" layoutY="186.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAtomicDiffusion" text="Atomic" selected="true">
+      <RadioButton fx:id="atomic" layoutX="13.0" layoutY="358.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAtomicDiffusion" selected="true" text="Atomic">
          <toggleGroup>
             <ToggleGroup fx:id="diffusionStrategy" />
          </toggleGroup>
@@ -54,68 +52,115 @@
             <Font size="21.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="sequential" layoutX="515.0" layoutY="149.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setSequentialDiffusion" text="Sequential" toggleGroup="$diffusionStrategy">
+      <RadioButton fx:id="sequential" layoutX="13.0" layoutY="396.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setSequentialDiffusion" text="Sequential" toggleGroup="$diffusionStrategy">
          <font>
             <Font size="21.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="epoc" layoutX="575.0" layoutY="223.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setEpocDiffusion" text="Epoc" toggleGroup="$diffusionStrategy">
+      <RadioButton fx:id="epoc" layoutX="13.0" layoutY="429.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setEpocDiffusion" text="Epoc" toggleGroup="$diffusionStrategy">
          <font>
             <Font size="21.0" />
          </font>
       </RadioButton>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="119.0" layoutX="203.0" layoutY="141.0" stroke="BLACK" strokeType="INSIDE" width="286.0" />
-      <TextField fx:id="valueCaptor" alignment="CENTER_RIGHT" editable="false" layoutX="213.0" layoutY="183.0" prefHeight="60.0" prefWidth="266.0" promptText="0">
+      <TextField fx:id="valueCaptor" alignment="CENTER_RIGHT" editable="false" layoutX="193.0" layoutY="378.0" prefHeight="68.0" prefWidth="123.0" promptText="0">
          <font>
             <Font size="35.0" />
          </font>
       </TextField>
-      <Label layoutX="213.0" layoutY="151.0" text="Current Time :" textFill="WHITE" />
-      <Text fx:id="timeCaptor" fill="WHITE" layoutX="317.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-      <Text fx:id="timeC" layoutX="461.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+
+      <TextField fx:id="delay" alignment="CENTER_RIGHT" layoutX="193.0" layoutY="306.0" prefHeight="38.0" prefWidth="123.0" promptText="0" text="1000">
          <font>
-            <Font size="22.0" />
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="181.0" layoutY="241.0" text="Current Time :" textFill="WHITE" />
+      <Text fx:id="timeCaptor" fill="WHITE" layoutX="192.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" >
+         <font>
+            <Font size="10.0" />
          </font>
       </Text>
-      <Text layoutX="393.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :">
+      <Text fx:id="timeC" layoutX="48.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
-            <Font size="19.0" />
+            <Font size="10.0" />
          </font>
       </Text>
-      <Text fx:id="valueC" layoutX="393.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <Text layoutX="14.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :">
          <font>
-            <Font size="43.0" />
+            <Font size="10.0" />
          </font>
       </Text>
-      <Text fx:id="valueD" layoutX="574.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
-         <font>
-            <Font size="43.0" />
-         </font>
-      </Text>
-      <Text layoutX="575.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Text>
-      <Text fx:id="timeD" layoutX="644.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Text>
-      <Text fx:id="valueE" layoutX="756.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <Text fx:id="valueC" layoutX="12.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
             <Font size="43.0" />
          </font>
       </Text>
-      <Text layoutX="757.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :">
+      <Text fx:id="valueD" layoutX="14.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
          <font>
-            <Font size="19.0" />
+            <Font size="43.0" />
          </font>
       </Text>
-      <Text fx:id="timeE" layoutX="825.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+      <Text layoutX="12.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :">
          <font>
-            <Font size="22.0" />
+            <Font size="10.0" />
          </font>
       </Text>
+      <Text fx:id="timeD" layoutX="46.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <Text fx:id="valueE" layoutX="178.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Text>
+      <Text layoutX="176.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <Text fx:id="timeE" layoutX="210.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <Label layoutX="12.0" layoutY="91.0" text="Delay :" />
+      <TextField fx:id="channelDelayA" alignment="CENTER_RIGHT" layoutX="60.0" layoutY="91.0" prefWidth="60" promptText="0" text="150">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="177.0" layoutY="91.0" text="Delay :" />
+      <TextField fx:id="channelDelayB" alignment="CENTER_RIGHT" layoutX="228.0" layoutY="91.0" prefWidth="60" promptText="0" text="250">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="12.0" layoutY="317.0" text="Delay :" />
+      <TextField fx:id="channelDelayC" alignment="CENTER_RIGHT" layoutX="63.0" layoutY="317.0" prefWidth="60" promptText="0" text="600">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="14.0" layoutY="204.0" text="Delay :" />
+      <TextField fx:id="channelDelayD" alignment="CENTER_RIGHT" layoutX="62.0" layoutY="204.0" prefWidth="60" promptText="0" text="1200">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="178.0" layoutY="204.0" text="Delay :" />
+      <TextField fx:id="channelDelayE" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="204.0" prefWidth="60" promptText="0" text="2000">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="181.0" layoutY="284.0" text="Delay :" textFill="WHITE" />
+      <Label layoutX="181.0" layoutY="358.0" text="Value :" textFill="WHITE" />
+      <Label layoutX="149.0" layoutY="91.0" text="A" />
+      <Label layoutX="315.0" layoutY="91.0" text="B" />
+      <Label layoutX="149.0" layoutY="204.0" text="C" />
+      <Label layoutX="312.0" layoutY="204.0" text="D" />
+      <Label layoutX="149.0" layoutY="317.0" text="E" />
+      <Label layoutX="282.0" layoutY="451.0" text="Captor" textFill="WHITE" />
    </children>
 </AnchorPane>

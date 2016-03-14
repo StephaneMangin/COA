@@ -1,6 +1,8 @@
 package org.istic.coa.tp.Core.interfaces;
 
 
+import org.istic.coa.tp.Core.utils.ValuesContainer;
+
 import java.util.concurrent.Future;
 
 /**

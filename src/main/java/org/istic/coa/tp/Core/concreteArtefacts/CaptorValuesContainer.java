@@ -1,6 +1,6 @@
 package org.istic.coa.tp.Core.concreteArtefacts;
 
-import org.istic.coa.tp.Core.interfaces.ValuesContainer;
+import org.istic.coa.tp.Core.utils.ValuesContainer;
 
 /**
  * Created by blacknight on 13/03/16.

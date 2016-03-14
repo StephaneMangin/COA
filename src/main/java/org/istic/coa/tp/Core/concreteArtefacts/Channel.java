@@ -4,7 +4,7 @@ import org.istic.coa.tp.Core.implementationHelpers.AbstractSubject;
 import org.istic.coa.tp.Core.interfaces.AsyncCaptor;
 import org.istic.coa.tp.Core.interfaces.Captor;
 import org.istic.coa.tp.Core.interfaces.Observer;
-import org.istic.coa.tp.Core.interfaces.ValuesContainer;
+import org.istic.coa.tp.Core.utils.ValuesContainer;
 
 import java.util.concurrent.*;
 

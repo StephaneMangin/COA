@@ -1,6 +1,6 @@
 package org.istic.coa.tp;
 
-import org.istic.coa.tp.Core.concreteArtefacts.CaptorScheduleProcessor;
+import org.istic.coa.tp.Core.utils.CaptorScheduleProcessor;
 import org.istic.coa.tp.Core.concreteArtefacts.Display;
 import org.istic.coa.tp.Core.concreteArtefacts.Channel;
 import org.istic.coa.tp.Core.concreteArtefacts.CaptorImpl;
@@ -15,7 +15,7 @@ public class StandAloneLauncher {
 
         // The capteur
         CaptorImpl captor = new CaptorImpl(null);
-        captor.setDiffuseStrategy(DiffusionType.EPOC);
+        captor.setDiffuseStrategy(DiffusionType.ATOMIC);
         CaptorScheduleProcessor process = new CaptorScheduleProcessor(1, 1500, 1);
         process.incrementWithStepByPeriod(captor, 200);
 

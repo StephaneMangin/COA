@@ -1,9 +1,11 @@
-package org.istic.coa.tp.Core.concreteArtefacts;
+package org.istic.coa.tp.Core.utils;
 
+import org.istic.coa.tp.Core.concreteArtefacts.CaptorImpl;
+import org.istic.coa.tp.Core.concreteArtefacts.CaptorValuesContainer;
 import org.istic.coa.tp.Core.diffusionStrategies.DiffusionType;
-import org.istic.coa.tp.Core.interfaces.Captor;
-import org.istic.coa.tp.Core.interfaces.DiffusionStrategy;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -42,7 +44,7 @@ public class CaptorScheduleProcessor {
             public void run() {
                 double time = 0;
                 if (captor.getDiffusionStrategy().getDiffusionType() == DiffusionType.EPOC) {
-                    time = captor.getValues().getTime() + 0.01;
+                    time = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
                 }
                 // Increament value in N by 1 and time by 0.01
                 int newValue = captor.getValues().getValue() + step;
@@ -69,7 +71,7 @@ public class CaptorScheduleProcessor {
             public void run() {
                 double time = 0;
                 if (captor.getDiffusionStrategy().getDiffusionType() == DiffusionType.EPOC) {
-                    time = captor.getValues().getTime() + 0.01;
+                    time = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
                 }
                 // Increament value in N by 1 and time by 0.01
                 captor.setValues(
@@ -79,5 +81,13 @@ public class CaptorScheduleProcessor {
             }
         };
         timer.schedule(task, 0, (long) perdiodInMiliSeconds);
+    }
+
+    /**
+     * Reinit the timer
+     *
+     */
+    public void purge() {
+        timer.purge();
     }
 }

@@ -1,4 +1,4 @@
-package org.istic.coa.tp.Core.interfaces;
+package org.istic.coa.tp.Core.utils;
 
 /**
  * Created by blacknight on 13/03/16.

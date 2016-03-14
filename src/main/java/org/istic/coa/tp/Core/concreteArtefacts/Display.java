@@ -1,15 +1,9 @@
 package org.istic.coa.tp.Core.concreteArtefacts;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableStringValue;
 import org.istic.coa.tp.Core.interfaces.AsyncCaptor;
 import org.istic.coa.tp.Core.interfaces.Observer;
-import org.istic.coa.tp.Core.interfaces.ValuesContainer;
+import org.istic.coa.tp.Core.utils.ValuesContainer;
 import org.istic.coa.tp.Gui.Controller;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Define a visualizer for values

@@ -1,5 +1,7 @@
 package org.istic.coa.tp.Core.interfaces;
 
+import org.istic.coa.tp.Core.utils.ValuesContainer;
+
 /**
  * Define the basics methods for a capteur
  *

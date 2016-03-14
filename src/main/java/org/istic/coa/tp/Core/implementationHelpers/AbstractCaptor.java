@@ -2,7 +2,7 @@ package org.istic.coa.tp.Core.implementationHelpers;
 
 import org.istic.coa.tp.Core.concreteArtefacts.CaptorValuesContainer;
 import org.istic.coa.tp.Core.interfaces.Captor;
-import org.istic.coa.tp.Core.interfaces.ValuesContainer;
+import org.istic.coa.tp.Core.utils.ValuesContainer;
 
 /**
  * Created by stephane on 06/01/16.

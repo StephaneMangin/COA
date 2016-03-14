@@ -10,13 +10,13 @@ import javafx.stage.Stage;
  *
  * Created by stephane on 06/01/16.
  */
-public class App extends javafx.application.Application {
+public class App extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/interface.fxml"));
         primaryStage.setTitle("COA - MANGIN - ActiveObject Implementation");
-        primaryStage.setScene(new Scene(root, 915, 275));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
