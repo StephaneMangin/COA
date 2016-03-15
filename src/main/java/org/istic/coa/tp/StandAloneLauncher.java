@@ -6,6 +6,8 @@ import org.istic.coa.tp.Core.concreteArtefacts.Channel;
 import org.istic.coa.tp.Core.concreteArtefacts.CaptorImpl;
 import org.istic.coa.tp.Core.diffusionStrategies.DiffusionType;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by stephane on 12/01/16.
  */
@@ -17,7 +19,7 @@ public class StandAloneLauncher {
         CaptorImpl captor = new CaptorImpl(null);
         captor.setDiffuseStrategy(DiffusionType.ATOMIC);
         CaptorScheduleProcessor process = new CaptorScheduleProcessor(1, 1500, 1);
-        process.incrementWithStepByPeriod(captor, 200);
+        process.incrementWithStepByPeriod(captor, 200, TimeUnit.MILLISECONDS);
 
         // First canal
         Channel channel1 = new Channel(captor);

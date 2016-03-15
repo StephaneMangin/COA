@@ -20,6 +20,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 
 public class Controller implements Initializable{
@@ -126,7 +127,7 @@ public class Controller implements Initializable{
 
     private void reinitCaptor() {
         processor.purge();
-        processor.incrementWithStepByPeriod(captor, Integer.parseInt(delay.getText()));
+        processor.incrementWithStepByPeriod(captor, Integer.parseInt(delay.getText()), TimeUnit.MILLISECONDS);
     }
 
     public void update(Display display) {

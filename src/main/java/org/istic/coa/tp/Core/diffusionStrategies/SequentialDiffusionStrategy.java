@@ -2,13 +2,15 @@ package org.istic.coa.tp.Core.diffusionStrategies;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by stephane on 12/01/16.
  */
 public class SequentialDiffusionStrategy extends AbstractDiffusionStrategy {
 
-    private ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private ScheduledThreadPoolExecutor executorService = new ScheduledThreadPoolExecutor(100);
 
     public SequentialDiffusionStrategy(DiffusionType type) {
         super(type);
@@ -23,6 +25,8 @@ public class SequentialDiffusionStrategy extends AbstractDiffusionStrategy {
      *
      */
     public void execute() {
-        clients.forEach(observer -> executorService.submit(() -> observer.update(captor)));
+        if (executorService.getActiveCount() == 0) {
+            clients.forEach(observer -> executorService.submit(() -> observer.update(captor)));
+        }
     }
 }

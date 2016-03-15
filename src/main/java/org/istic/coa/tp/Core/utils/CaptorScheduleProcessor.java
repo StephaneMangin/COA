@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Allow to manage the value computation of a captor
@@ -37,9 +38,10 @@ public class CaptorScheduleProcessor {
      * Increment the captor by step
      *
      * @param captor
-     * @param perdiodInMiliSeconds
+     * @param period
+     * @param unit
      */
-    public void incrementWithStepByPeriod(CaptorImpl captor, double perdiodInMiliSeconds) {
+    public void incrementWithStepByPeriod(CaptorImpl captor, long period, TimeUnit unit) {
         TimerTask task = new TimerTask() {
             public void run() {
                 double time = 0;
@@ -57,16 +59,17 @@ public class CaptorScheduleProcessor {
                 captor.tick();
             }
         };
-        timer.schedule(task, 0, (long) perdiodInMiliSeconds);
+        timer.schedule(task, unit.toMillis(period), unit.toMillis(period));
     }
 
     /**
      * Randomly change the captor value
      *
      * @param captor
-     * @param perdiodInMiliSeconds
+     * @param period
+     * @param unit
      */
-    public void randomIncrementByPeriod(CaptorImpl captor, double perdiodInMiliSeconds) {
+    public void randomIncrementByPeriod(CaptorImpl captor, long period, TimeUnit unit) {
         TimerTask task = new TimerTask() {
             public void run() {
                 double time = 0;
@@ -80,7 +83,7 @@ public class CaptorScheduleProcessor {
                 captor.tick();
             }
         };
-        timer.schedule(task, 0, (long) perdiodInMiliSeconds);
+        timer.schedule(task, unit.toMillis(period), unit.toMillis(period));
     }
 
     /**
@@ -89,5 +92,7 @@ public class CaptorScheduleProcessor {
      */
     public void purge() {
         timer.purge();
+        timer.cancel();
+        timer = new Timer();
     }
 }
